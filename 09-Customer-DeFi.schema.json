@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CustomerDeFiDashboard",
+  "type": "object",
+  "properties": {
+    "walletCard": {
+      "type": "object",
+      "properties": {
+        "address": { "type": "string" },
+        "copyButton": { "type": "boolean" },
+        "qrCodeButton": { "type": "boolean" },
+        "linked": { "type": "boolean" }
+      }
+    },
+    "collateralKPIs": {
+      "type": "object",
+      "properties": {
+        "btcCollateral": { "type": "number" },
+        "usdBorrowed": { "type": "number" },
+        "ltvPercent": { "type": "number" },
+        "healthStatus": { "type": "string" }
+      }
+    },
+    "protocolsTabs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "protocolId": { "type": "string" },
+          "active": { "type": "boolean" },
+          "supplied": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "coin": { "type": "string" },
+              "usdValue": { "type": "number" }
+            }
+          },
+          "borrowed": {
+            "type": "object",
+            "properties": {
+              "amount": { "type": "number" },
+              "coin": { "type": "string" },
+              "usdValue": { "type": "number" }
+            }
+          },
+          "usdValueTotal": { "type": "number" },
+          "healthRate": { "type": "number" },
+          "positionsTable": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "actions": {
+            "type": "array",
+            "items": { "type": "object", "properties": {
+              "label": { "type": "string" }, "enabled": { "type": "boolean" }
+            } }
+          }
+        }
+      }
+    },
+    "alerts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "loadingState": { "type": "boolean" },
+    "errorBox": { "type": "string" }
+  },
+  "required": ["walletCard", "collateralKPIs", "protocolsTabs"]
+}
+

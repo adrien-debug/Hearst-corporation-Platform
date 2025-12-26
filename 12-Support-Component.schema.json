@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SupportComponent",
+  "type": "object",
+  "properties": {
+    "button": {
+      "type": "object",
+      "properties": {
+        "fixedPosition": { "type": "boolean" },
+        "icon": { "type": "string" },
+        "ariaLabel": { "type": "string" }
+      }
+    },
+    "modal": {
+      "type": "object",
+      "properties": {
+        "open": { "type": "boolean" },
+        "fields": {
+          "type": "array",
+          "items": [
+            { "type": "object", "properties": { "type": { "const": "textarea" }, "label": { "type": "string" }, "required": { "type": "boolean" } } },
+            { "type": "object", "properties": { "type": { "const": "email" }, "label": { "type": "string" }, "value": { "type": "string" }, "readonly": { "type": "boolean" } } }
+          ]
+        },
+        "actions": {
+          "type": "array",
+          "items": [
+            { "type": "object", "properties": { "type": { "const": "submit" }, "label": { "type": "string" }, "loadingState": { "type": "boolean" }, "disabled": { "type": "boolean" } } },
+            { "type": "object", "properties": { "type": { "const": "cancel" }, "label": { "type": "string" } } }
+          ]
+        },
+        "feedback": {
+          "type": "object",
+          "properties": {
+            "success": { "type": "string" },
+            "error": { "type": "string" }
+          }
+        }
+      }
+    },
+    "faqLink": { "type": "string" }
+  },
+  "required": ["button", "modal"]
+}
+

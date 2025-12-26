@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoginPage",
+  "type": "object",
+  "properties": {
+    "logo": { "type": "string" },
+    "tenantSelector": { "type": "object", "nullable": true },
+    "form": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "password": { "type": "string" },
+        "remember": { "type": "boolean" }
+      },
+      "required": ["email", "password"]
+    },
+    "submitButton": { "type": "object", "properties": {
+      "label": { "type": "string" },
+      "state": { "type": "string" }
+    }},
+    "links": { "type": "object" },
+    "errorBox": { "type": "object", "nullable": true },
+    "footer": { "type": "object" }
+  },
+  "required": ["form"]
+}
+
+
+
+

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProfilePage",
+  "type": "object",
+  "properties": {
+    "avatarUri": { "type": "string" },
+    "fields": {
+      "type": "array",
+      "items": [
+        { "type": "object", "properties": { "type": { "const": "text" }, "label": { "type": "string" }, "value": { "type": "string" } } },
+        { "type": "object", "properties": { "type": { "const": "email" }, "label": { "type": "string" }, "value": { "type": "string" } } }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": [
+        { "type": "object", "properties": { "type": { "const": "button" }, "label": { "type": "string" }, "onClick": { "type": "string" } } }
+      ]
+    },
+    "logout": { "type": "boolean" }
+  },
+  "required": ["fields", "avatarUri", "logout"]
+}
+

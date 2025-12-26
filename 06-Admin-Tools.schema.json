@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdminToolsPanel",
+  "type": "object",
+  "properties": {
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "toolId": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "iconUri": { "type": "string" },
+          "launchAction": { "type": "string" },
+          "visible": { "type": "boolean" },
+          "permissionsRequired": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": [ "toolId", "title", "launchAction" ]
+      }
+    },
+    "loadingState": { "type": "boolean" },
+    "support": { "type": "object" },
+    "footer": { "type": "object" }
+  },
+  "required": ["tools"]
+}
+
+
+
+

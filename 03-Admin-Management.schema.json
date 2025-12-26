@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdminManagementPanel",
+  "type": "object",
+  "properties": {
+    "tabs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tabId": { "type": "string" },
+          "label": { "type": "string" },
+          "active": { "type": "boolean" }
+        },
+        "required": ["tabId", "label", "active"]
+      }
+    },
+    "currentTab": { "type": "string" },
+    "resourceTable": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "currentPage": { "type": "integer" },
+            "pageSize": { "type": "integer" },
+            "totalRows": { "type": "integer" }
+          }
+        },
+        "search": { "type": "string" },
+        "addButton": { "type": "boolean" },
+        "emptyState": { "type": "string" },
+        "loadingState": { "type": "boolean" }
+      }
+    },
+    "modalForm": {
+      "type": "object",
+      "properties": {
+        "fields": { "type": "array", "items": { "type": "object" } },
+        "open": { "type": "boolean" },
+        "mode": { "type": "string", "enum": ["add", "edit"] }
+      }
+    },
+    "errorBox": {
+      "type": "object",
+      "properties": {
+        "message": { "type": "string" },
+        "visible": { "type": "boolean" }
+      }
+    }
+  },
+  "required": ["tabs", "currentTab", "resourceTable"]
+}
+
+
+
+

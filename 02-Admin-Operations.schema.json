@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdminOperationsDashboard",
+  "type": "object",
+  "properties": {
+    "topbar": { "type": "object" },
+    "sidebar": { "type": "object" },
+    "kpiGrid": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" },
+          "unit": { "type": "string" },
+          "status": { "type": "string", "enum": ["up", "down", "neutral"] },
+          "infoTooltip": { "type": "string" }
+        },
+        "required": ["label", "value", "unit"]
+      }
+    },
+    "customersTable": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "currentPage": { "type": "integer" },
+            "totalRows": { "type": "integer" }
+          }
+        },
+        "search": { "type": "string" },
+        "addButton": { "type": "boolean" }
+      }
+    },
+    "contractsTable": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "filters": { "type": "object" },
+        "tableActions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "miningDistribution": {
+      "type": "object",
+      "properties": {
+        "byBrand": {
+          "type": "array",
+          "items": { "type": "object", "properties": { "brand": { "type": "string" }, "count": { "type": "integer" } } }
+        },
+        "byCountry": {
+          "type": "array",
+          "items": { "type": "object", "properties": { "country": { "type": "string" }, "count": { "type": "integer" } } }
+        }
+      }
+    },
+    "support": { "type": "object" },
+    "footer": { "type": "object" }
+  },
+  "required": ["topbar", "sidebar", "kpiGrid", "customersTable", "contractsTable", "miningDistribution"]
+}
+
+
+
+

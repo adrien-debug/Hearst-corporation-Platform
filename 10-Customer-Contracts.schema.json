@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CustomerContractsPanel",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "contract": { "type": "string" },
+        "machine": { "type": "string" },
+        "country": { "type": "string" },
+        "crypto": { "type": "string" },
+        "status": { "type": "string" },
+        "dateRange": {
+          "type": "object",
+          "properties": {
+            "from": { "type": "string", "format": "date" },
+            "to": { "type": "string", "format": "date" }
+          }
+        }
+      }
+    },
+    "contractsTable": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "pagination": { "type": "object" },
+        "exportCsv": { "type": "boolean" },
+        "exportPdf": { "type": "boolean" }
+      }
+    },
+    "distributionWidgets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "by": { "type": "string" },
+          "series": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    },
+    "contractDetailsModal": {
+      "type": "object",
+      "properties": {
+        "open": { "type": "boolean" },
+        "contractId": { "type": "string" },
+        "kpis": { "type": "array", "items": { "type": "object" } },
+        "timeline": { "type": "array", "items": { "type": "object" } },
+        "actions": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "required": ["filters", "contractsTable"]
+}
+

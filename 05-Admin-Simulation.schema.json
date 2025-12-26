@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdminSimulationPanel",
+  "type": "object",
+  "properties": {
+    "table": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "pagination": { "type": "object" },
+        "filters": { "type": "array", "items": { "type": "string" } },
+        "actions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "modal": {
+      "type": "object",
+      "properties": {
+        "open": { "type": "boolean" },
+        "simulationId": { "type": "string" },
+        "details": { "type": "object" }
+      }
+    },
+    "loadingState": { "type": "boolean" },
+    "errorBox": { "type": "string" }
+  },
+  "required": ["table"]
+}
+
+
+
+

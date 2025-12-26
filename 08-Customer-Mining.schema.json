@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CustomerMiningDashboard",
+  "type": "object",
+  "properties": {
+    "kpiCards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "btcValue": { "type": "string" },
+          "usdValue": { "type": "string" },
+          "trend": { "type": "string", "enum": ["up", "down", "neutral"] }
+        },
+        "required": ["label", "btcValue", "usdValue", "trend"]
+      }
+    },
+    "performanceChart": {
+      "type": "object",
+      "properties": {
+        "toggle": { "type": "string", "enum": ["With Collateral", "Without Collateral"] },
+        "dateRange": {
+          "type": "object",
+          "properties": {
+            "from": { "type": "string", "format": "date" },
+            "to": { "type": "string", "format": "date" }
+          }
+        },
+        "series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string", "format": "date" },
+              "yieldPct": { "type": "number" }
+            }
+          }
+        },
+        "badges": {
+          "type": "object",
+          "properties": {
+            "bestPeriod": { "type": "string" },
+            "currentYield": { "type": "number" }
+          }
+        }
+      }
+    },
+    "contracts": { "type": "array", "items": { "type": "string" } },
+    "selectedContract": { "type": "string" },
+    "transactionsTable": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string", "format": "date" },
+              "hashrate": { "type": "number" },
+              "earningsBtc": { "type": "number" }
+            }
+          }
+        },
+        "pagination": { "type": "object" },
+        "search": { "type": "string" },
+        "exportCsv": { "type": "boolean" }
+      }
+    },
+    "showDetailsModal": { "type": "boolean" },
+    "floatingSupport": { "type": "string" }
+  },
+  "required": ["kpiCards", "performanceChart", "transactionsTable"]
+}
+
